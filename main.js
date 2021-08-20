@@ -16,10 +16,14 @@ const buttons = document.getElementsByClassName('like-glyph');
 //Grabs each individual heart button on the page & adds click listener
 for(let button of buttons) {
   button.addEventListener('click', e => {
+    let button = e.target
     e.preventDefault()
     mimicServerCall()
-    .then(data => console.log(data))
+    .then(data => {
+      button.className = "activated-heart"
+      console.log(data)})
     .catch(() => {
+      button.className = ""
     modal.className = ""
     setTimeout(function() {
         modal.className = "hidden"
