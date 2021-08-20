@@ -4,6 +4,24 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+//Gets rid of the error modal at the top of the screen
+const modal = document.querySelector('#modal');
+modal.hidden = true;
+
+//Grabs the heart button HMTL collection on the page
+const buttons = document.getElementsByClassName('like-glyph');
+//console.log(buttons);
+
+//Grabs each individual heart button on the page
+for(let button of buttons) {
+  button.addEventListener('click', e => console.log(e.target));
+};
+
+
+//Adds click listener to the buttons on the page
+//buttons.addEventListener('click', e => console.log(e.target));
+//buttons.forEach(button => console.log(button));
+
 
 
 
