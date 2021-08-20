@@ -20,7 +20,9 @@ for(let button of buttons) {
     e.preventDefault()
     mimicServerCall()
     .then(data => {
-      button.className = "activated-heart"
+      if (button.className === "activated-heart") {
+        button.className = ""}
+      else {button.className = "activated-heart"}
       console.log(data)})
     .catch(() => {
       button.className = ""
