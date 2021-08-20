@@ -4,31 +4,37 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
-//Gets rid of the error modal at the top of the screen
+//Selects error modal and defaults to
 const modal = document.querySelector('#modal');
-modal.hidden = true;
+
+modal.className = "hidden"
 
 //Grabs the heart button HMTL collection on the page
 const buttons = document.getElementsByClassName('like-glyph');
-/*
+
+
 //Grabs each individual heart button on the page & adds click listener
 for(let button of buttons) {
   button.addEventListener('click', e => {
-    e.target.span = FULL_HEART;
-    console.log(e.target);
-})
-};
-*/
-
-// fetch(mimicServerCall)
-//   .then(res => res.json)
-//   .then(data => console.log(data));
-
-for(let button of buttons) {
-  button.addEventListener('click', e => {
+    e.preventDefault()
     mimicServerCall()
     .then(data => console.log(data))
-  })};
+    .catch(() => {
+    modal.className = ""
+    setTimeout(function() {
+        modal.className = "hidden"
+      }, 3000);
+      console.log("ERROR");
+    })
+  })
+};
+ 
+//WHAT DO I WANT TO DO???
+//Take the data, and
+  //IF data=Pretend remote server notified of action!, do nothing
+//BUT if data= Random server error. Try again.
+  //THEN invoke modalChange(false)
+
 
 
 
