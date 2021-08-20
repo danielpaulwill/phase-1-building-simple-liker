@@ -10,17 +10,38 @@ modal.hidden = true;
 
 //Grabs the heart button HMTL collection on the page
 const buttons = document.getElementsByClassName('like-glyph');
-//console.log(buttons);
-
-//Grabs each individual heart button on the page
+/*
+//Grabs each individual heart button on the page & adds click listener
 for(let button of buttons) {
-  button.addEventListener('click', e => console.log(e.target));
+  button.addEventListener('click', e => {
+    e.target.span = FULL_HEART;
+    console.log(e.target);
+})
 };
+*/
+
+// fetch(mimicServerCall)
+//   .then(res => res.json)
+//   .then(data => console.log(data));
+
+for(let button of buttons) {
+  button.addEventListener('click', e => {
+    mimicServerCall()
+    .then(data => console.log(data))
+  })};
 
 
-//Adds click listener to the buttons on the page
-//buttons.addEventListener('click', e => console.log(e.target));
-//buttons.forEach(button => console.log(button));
+
+// When a user clicks on an empty heart:
+  // Invoke mimicServerCall to simulate making a server request
+  // When the "server" returns a failure status:
+  // Respond to the error using a .catch(() => {}) block after your .then(() => {}) block.
+  // Display the error modal by removing the .hidden class
+  // Display the server error message in the modal
+  // Use setTimeout to hide the modal after 3 seconds (add the .hidden class)
+  // When the "server" returns a success status:
+  // Change the heart to a full heart
+  // Add the .activated-heart class to make the heart appear red
 
 
 
